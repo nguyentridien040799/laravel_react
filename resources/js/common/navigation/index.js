@@ -14,6 +14,7 @@ class Navigation extends Component {
   static propTypes = {
     isAuthenticated: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
+    categories: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired,
   }
   
@@ -22,13 +23,21 @@ class Navigation extends Component {
     
     this.state = {
       showNavigation: false,
+      showCategory: false,
       showDropdown: false,
+      isOpen: false
     }
   }
   
   toggleNavbar = () => {
     this.setState({
       showNavigation: !this.state.showNavigation,
+    });
+  }
+
+  toggleCategory = () => {
+    this.setState({
+      showCategory: !this.state.showCategory,
     });
   }
   
@@ -46,17 +55,23 @@ class Navigation extends Component {
   
   render() {
     return (
-      <Navbar className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
-        <Link to="/" className="navbar-brand">MOEEN.ME</Link>
+      <Navbar className="navbar navbar-expand-md navbar-dark bg-primary fixed-top border-bottom">
+        <Link to="/" className="navbar-brand">MyBlog</Link>
         <NavbarToggler className="navbar-toggler d-lg-none" onClick={this.toggleNavbar} />
         {
-          this.props.isAuthenticated
+          this.props.isAuthenticated && this.props.categories
             ? <PrivateHeader user={this.props.user}
                              showNavigation={this.state.showNavigation}
                              toggleDropdown={this.toggleDropdown}
+                             showCategory={this.state.showCategory}
+                             toggleCategory={this.toggleCategory}
+                             categories={this.props.categories}
                              showDropdown={this.state.showDropdown}
                              logout={this.logout} />
-            : <PublicHeader showNavigation={this.state.showNavigation} />
+            : <PublicHeader showNavigation={this.state.showNavigation}
+                            showCategory={this.state.showCategory}
+                            toggleCategory={this.toggleCategory}
+                            categories={this.props.categories} />
         }
       </Navbar>
     )
@@ -66,7 +81,8 @@ class Navigation extends Component {
 const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
-    user: state.user
+    user: state.user,
+    categories: state.categories.data
   }
 }
 

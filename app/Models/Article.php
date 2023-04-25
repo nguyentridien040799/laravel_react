@@ -82,6 +82,9 @@ class Article extends Model
             'user' => function (BelongsTo $query) {
                 $query->select('id', 'name');
             },
+            'category' => function (BelongsTo $query) {
+                $query->select('id', 'name', 'slug');
+            },
         ])
             ->latest()
             ->published()
@@ -142,5 +145,15 @@ class Article extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Relationship between articles and user
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 }

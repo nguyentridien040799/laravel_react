@@ -26,7 +26,7 @@ class Articles extends Component {
   }
   
   render() {
-    return (<section id="components-articles">
+    return (<section id="components-articles" style={{paddingTop: '20px'}}>
       <div className="container">
         <div className="row">
           { this.props.articles && this.renderArticles() }

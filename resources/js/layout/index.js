@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom'
 
 // import services actions
 import { fetchUser } from '../modules/auth/service'
+import { categoryListRequest } from '../modules/category/service'
 
 // import components
 import PrivateLayout from './Private'
@@ -19,6 +20,8 @@ function Layout(props) {
     if (isAuthenticated && !user.id) {
       dispatch(fetchUser())
     }
+
+    dispatch(categoryListRequest({ url: 'api/v1/categories/published' }))
   }, [isAuthenticated])
 
   if (isAuthenticated) {
@@ -32,6 +35,7 @@ Layout.displayName = 'Layout';
 Layout.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
   user: PropTypes.object.isRequired,
+  categories: PropTypes.object.isRequired,
   children: PropTypes.node.isRequired,
   dispatch: PropTypes.func.isRequired,
 }
@@ -40,6 +44,7 @@ const mapStateToProps = state => {
   return {
     isAuthenticated: state.auth.isAuthenticated,
     user: state.user,
+    categories: state.categories,
   }
 }
 
