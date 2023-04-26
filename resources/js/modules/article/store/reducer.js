@@ -3,6 +3,7 @@ import {
   ARTICLE_UPDATE,
   ARTICLE_REMOVE,
   ARTICLE_LIST,
+  ARTICLE_LIST_BY_CATEGORY
 } from './action-types'
 
 const initialState = {
@@ -27,6 +28,7 @@ const reducer = (state = initialState, { type, payload = null }) => {
     case ARTICLE_REMOVE:
       return remove(state, payload)
     case ARTICLE_LIST:
+    case ARTICLE_LIST_BY_CATEGORY:
       return list(state, payload)
     default:
       return state

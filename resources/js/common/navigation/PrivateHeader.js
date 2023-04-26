@@ -20,7 +20,7 @@ export default function PrivateHeader({user, showNavigation, showDropdown, toggl
             <DropdownMenu className="dropdown-menu-right">
               {categories && categories.map((category, index) => {
                 return <DropdownItem key={index}>
-                  <Link className='dropdown-item' key={index} to={`category/${category.slug}` }>
+                  <Link className='dropdown-item' key={index} to={`/category/${category.slug}` }>
                     {category.name}
                   </Link>
                 </DropdownItem>

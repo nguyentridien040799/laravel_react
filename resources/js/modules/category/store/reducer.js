@@ -1,5 +1,5 @@
 import {
-    CATEGORY_LIST,
+    CATEGORY_LIST
 } from './action-types'
 
 const initialState = {

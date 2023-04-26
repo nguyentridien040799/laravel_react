@@ -111,6 +111,30 @@ class Article extends Model
     }
 
     /**
+     * load one published
+     *
+     * @param string $slug
+     *
+     * @return Paginator
+     */
+    public static function loadPublishedByCategory(string $slug): Paginator
+    {
+        return static::with([
+            'user' => function (BelongsTo $query) {
+                $query->select('id', 'name');
+            },
+            'category' => function (BelongsTo $query) {
+                $query->select('id', 'name', 'slug');
+            },
+        ])
+            ->published()
+            ->whereHas('category', function ($q) use ($slug) {
+                $q->where("slug", $slug);
+            })
+            ->paginate();
+    }
+
+    /**
      * Add query scope to get only published articles
      *
      * @param Builder $query
