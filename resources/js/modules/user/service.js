@@ -5,7 +5,7 @@ import * as userActions from './store/actions'
 export function userUpdateRequest(params) {
   return dispatch => (
     new Promise((resolve, reject) => {
-      Http.patch(`/users/${params.id}`, Transformer.send(params))
+      Http.patch(`/api/v1/users/${params.id}`, Transformer.send(params))
         .then(res => {
           dispatch(userActions.userUpdate(Transformer.fetch(res.data.user)))
           return resolve()

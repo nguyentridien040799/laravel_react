@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 // import components
 import { Collapse, Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap'
 import NavItem from './NavItem'
-import ArticleRow from "../../modules/article/pages/list/components/ArticleRow";
 
 // initiate Component
 export default function PrivateHeader({user, showNavigation, showDropdown, toggleDropdown, showCategory, toggleCategory, logout, categories}) {
@@ -20,7 +19,7 @@ export default function PrivateHeader({user, showNavigation, showDropdown, toggl
             <DropdownMenu className="dropdown-menu-right">
               {categories && categories.map((category, index) => {
                 return <DropdownItem key={index}>
-                  <Link className='dropdown-item' key={index} to={`/category/${category.slug}` }>
+                  <Link className='dropdown-item' key={index} to={`/category/${category?.slug}` }>
                     {category.name}
                   </Link>
                 </DropdownItem>
@@ -31,7 +30,7 @@ export default function PrivateHeader({user, showNavigation, showDropdown, toggl
       </ul>
 
       <ul className="navbar-nav">
-        <NavItem path="/articles">MyPage</NavItem>
+        <NavItem path="/mypage">MyPage</NavItem>
         <Dropdown isOpen={ showDropdown } toggle={ toggleDropdown }>
           <DropdownToggle nav caret>
             { user.name }

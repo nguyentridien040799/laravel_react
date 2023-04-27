@@ -9,7 +9,8 @@ const mapStateToProps = (state, router) => {
     const { params } = router.match
     const category = state.categories.data.find(category => category.slug === params.slug)
     return {
-        category: category ? new Category(category) : new Category({})
+        category: category ? new Category(category) : new Category({}),
+        meta: state.articles
     }
 }
 

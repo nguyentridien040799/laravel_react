@@ -23,6 +23,7 @@ class Page extends Component {
       'email': 'required|email',
       'phone': 'min:8|numeric',
       'about': 'min:10|max:1024',
+      'position': 'min:10|max:1024',
     })
     
     const user = this.props.user.toJson()
@@ -48,8 +49,9 @@ class Page extends Component {
   handleChange(name, value) {
     const { errors } = this.validator
     
-    this.setState({ user: { ...this.props.user, [name]: value} })
-    
+    this.setState({ user: { ...this.state.user, [name]: value} })
+
+    // reset errors for url field
     errors.remove(name)
     
     this.validator.validate(name, value)

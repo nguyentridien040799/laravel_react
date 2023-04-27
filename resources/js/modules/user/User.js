@@ -14,6 +14,7 @@ class User extends Model {
     this.email = props.email || ''
     this.phone = props.phone || ''
     this.about = props.about || ''
+    this.position = props.position || ''
   }
 }
 

@@ -64,6 +64,19 @@ const Form = ({ user, errors, onChange, onSubmit }) => {
       </div>
     </div>
     <div className="form-group row">
+      <label htmlFor="position" className="col-sm-2 col-form-label">Position</label>
+      <div className="col-sm-10">
+        <textarea id="position"
+                  name="position"
+                  className={`form-control ${errors.has('position') && 'is-invalid'}`}
+                  rows="3"
+                  placeholder="Position"
+                  value={user.position || ''}
+                  onChange={e => onChange(e.target.name, e.target.value)} />
+        {errors.has('about') && <div className="invalid-feedback">{errors.first('position')}</div>}
+      </div>
+    </div>
+    <div className="form-group row">
       <div className="col-sm-10 ml-auto">
         <button disabled={errors.any()} type="submit" className="btn btn-primary">Update</button>
       </div>

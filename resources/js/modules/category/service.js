@@ -3,10 +3,6 @@ import * as categoryActions from "../category/store/actions";
 import Transformer from "../../utils/Transformer";
 import * as articleActions from '../article/store/actions'
 
-function transformRequest(parms) {
-    return Transformer.send(parms)
-}
-
 function transformResponse(params) {
     return Transformer.fetch(params)
 }
@@ -30,9 +26,15 @@ export function categoryListRequest(params) {
     }
 }
 
-export function categoryListArticleRequest(slug) {
+export function categoryListArticleRequest(slug, pageNumber = 1) {
     return dispatch => {
-        Http.get(`api/v1/categories/${slug}/articles`)
+        let url = `api/v1/categories/${slug}/articles`;
+
+        if (pageNumber > 1) {
+            url = url + `?page=${pageNumber}`
+        }
+
+        Http.get(url)
             .then((res) => {
                 dispatch(articleActions.listArticleByCategory(transformResponse(res.data)))
             })

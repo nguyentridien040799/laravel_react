@@ -6,8 +6,9 @@ import { articleListRequest, articleUpdateRequest, articleRemoveRequest } from '
 
 // import components
 import ArticleRow from './components/ArticleRow'
-import Pagination from './components/Pagination'
+import Pagination from './../../../../common/pagination/index'
 import { Link } from 'react-router-dom'
+import Sidebar from "../../../../common/sidebar";
 
 class Page extends Component {
   static displayName = 'ArticlesPage'
@@ -62,26 +63,31 @@ class Page extends Component {
   }
   
   render() {
-    return <main className="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
-      <h1>Articles</h1>
-      <table className="table table-responsive table-striped">
-        <thead className="thead-inverse">
-        <tr>
-          <th>#</th>
-          <th>Title</th>
-          <th>Description</th>
-          <th>Created At</th>
-          <th>Updated At</th>
-          <th>Published At</th>
-          <th><Link to='/articles/create' className="btn btn-success">Add</Link></th>
-        </tr>
-        </thead>
-        <tbody>
-        { this.renderArticles() }
-        </tbody>
-      </table>
-      <Pagination meta={this.props.meta} onChange={this.pageChange}/>
-      </main>
+    return <div className="container-fluid">
+        <div className="row">
+          <Sidebar></Sidebar>
+          <div className="col-sm-9 col-md-10 pt-3" role="main">
+            <h1>Articles</h1>
+            <table className="table table-responsive table-striped">
+              <thead className="thead-inverse">
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Created At</th>
+                <th>Updated At</th>
+                <th>Published At</th>
+                <th><Link to='/articles/create' className="btn btn-success">Add</Link></th>
+              </tr>
+              </thead>
+              <tbody>
+              { this.renderArticles() }
+              </tbody>
+            </table>
+            <Pagination meta={this.props.meta} onChange={this.pageChange}/>
+          </div>
+        </div>
+      </div>
   }
 }
 

@@ -4,5 +4,6 @@ import authRoutes from "../modules/auth/routes"
 import userRoutes from "../modules/user/routes"
 import articleRoutes from "../modules/article/routes"
 import categoryRoutes from "../modules/category/routes"
+import mypageRoutes from "../modules/mypage/routes"
 
-export default [...webRoutes, ...authRoutes, ...userRoutes, ...articleRoutes, ...categoryRoutes]
+export default [...webRoutes, ...authRoutes, ...userRoutes, ...articleRoutes, ...categoryRoutes, ...mypageRoutes]
