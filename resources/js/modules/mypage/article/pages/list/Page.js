@@ -6,9 +6,9 @@ import { articleListRequest, articleUpdateRequest, articleRemoveRequest } from '
 
 // import components
 import ArticleRow from './components/ArticleRow'
-import Pagination from './../../../../common/pagination/index'
+import Pagination from '../../../../../common/pagination'
 import { Link } from 'react-router-dom'
-import Sidebar from "../../../../common/sidebar";
+import Sidebar from "../../../../../common/sidebar";
 
 class Page extends Component {
   static displayName = 'ArticlesPage'

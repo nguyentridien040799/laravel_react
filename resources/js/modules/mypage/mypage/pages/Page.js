@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 
 // import components
-import Sidebar from "../../../common/sidebar/index";
+import Sidebar from "../../../../common/sidebar";
 
 class Page extends Component {
     static displayName = 'MyPage'

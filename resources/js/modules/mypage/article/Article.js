@@ -1,7 +1,7 @@
 import moment from 'moment'
-import Model from '../../utils/Model'
+import Model from '../../../utils/Model'
 import User from '../user/User'
-import Category from "../category/Category";
+import Category from "../../category/Category";
 
 class Article extends Model {
   constructor(props) {

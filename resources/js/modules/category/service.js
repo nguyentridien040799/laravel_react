@@ -1,7 +1,7 @@
 import Http from "../../utils/Http";
 import * as categoryActions from "../category/store/actions";
 import Transformer from "../../utils/Transformer";
-import * as articleActions from '../article/store/actions'
+import * as articleActions from '../mypage/article/store/actions'
 
 function transformResponse(params) {
     return Transformer.fetch(params)

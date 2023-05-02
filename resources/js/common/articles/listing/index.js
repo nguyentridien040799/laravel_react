@@ -1,6 +1,6 @@
 // libs
 import { connect } from 'react-redux'
-import Article from '../../../modules/article/Article'
+import Article from '../../../modules/mypage/article/Article'
 
 // components
 import Articles from './components/Articles'

@@ -1,5 +1,5 @@
-import Http from '../../utils/Http'
-import Transformer from '../../utils/Transformer'
+import Http from '../../../utils/Http'
+import Transformer from '../../../utils/Transformer'
 import * as userActions from './store/actions'
 
 export function userUpdateRequest(params) {

@@ -12,6 +12,7 @@ class Page extends Component {
   static displayName = 'UserPage'
   static propTypes = {
     user: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired,
   }
   
@@ -76,7 +77,9 @@ class Page extends Component {
   }
   
   submit(user) {
-    this.props.dispatch(userUpdateRequest(user))
+    this.props.dispatch(userUpdateRequest(user)).then(() => {
+      this.props.history.push(`/users/${this.state.user.id}/edit`)
+    })
       .catch(({ error, statusCode }) => {
         const { errors } = this.validator
         

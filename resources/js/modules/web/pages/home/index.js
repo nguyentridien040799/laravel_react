@@ -6,7 +6,8 @@ import Page from "./Page"
 
 const mapStateToProps = state => {
     return {
-        meta: state.articles
+        meta: state.articles,
+        isAuthenticated: state.auth.isAuthenticated,
     }
 }
 

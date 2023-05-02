@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 import Articles from "../../../../../common/articles/listing"
 
 // import services
-import { articleListRequest } from "../../../../article/service"
+import { articleListRequest } from "../../../../mypage/article/service"
 
 class Page extends Component {
   static displayName = "HomePage"

@@ -2,7 +2,7 @@
 import React, {useEffect} from 'react'
 import PropTypes from 'prop-types'
 import DocumentTitle from 'react-document-title';
-import {articleFetchRequest} from '../../../../article/service'
+import {articleFetchRequest} from '../../../../mypage/article/service'
 import {APP_TITLE} from '../../../../../values'
 
 export default function Page({match, article, dispatch}) {

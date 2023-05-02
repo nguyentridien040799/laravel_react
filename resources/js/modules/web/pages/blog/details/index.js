@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Article from '../../../../article/Article'
+import Article from '../../../../mypage/article/Article'
 
 // import components
 import Page from './Page'

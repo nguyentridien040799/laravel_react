@@ -107,7 +107,7 @@
            <div className="row">
              <div className="mx-auto">
                <span className="anchor"/>
-               <div className="card has-shadow">
+               <div className="card has-shadow" style={{minWidth:"400px"}}>
                  <div className="card-body">
                   { this.state.message ? 
                     (<div className="alert alert-success">{this.state.message}</div>) 

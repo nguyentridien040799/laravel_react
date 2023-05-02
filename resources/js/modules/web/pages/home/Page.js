@@ -6,7 +6,7 @@ import Header from "./components/Header"
 import Articles from "../../../../common/articles/listing"
 
 // import services
-import { articleListRequest } from '../../../article/service'
+import { articleListRequest } from '../../../mypage/article/service'
 import Pagination from "../../../../common/pagination";
 
 class Page extends Component{
@@ -14,6 +14,7 @@ class Page extends Component{
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     meta: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired
   }
 
   componentDidMount() {
@@ -24,9 +25,12 @@ class Page extends Component{
     this.props.dispatch(articleListRequest({ url: 'api/v1/articles/published', pageNumber }))
   }
 
+  renderHeader() {
+    return this.props.isAuthenticated && <Header/>
+  }
   render() {
     return (<div>
-      <Header/>
+      {this.renderHeader()}
       <Articles/>
       <Pagination meta={this.props.meta} onChange={this.pageChange}/>
     </div>)

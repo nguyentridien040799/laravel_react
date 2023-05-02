@@ -119,7 +119,7 @@ class Page extends Component {
           <div className="row">
             <div className="mx-auto">
               <span className="anchor"/>
-              <div className="card has-shadow">
+              <div className="card has-shadow" style={{minWidth:"400px"}}>
                 <div className="card-body">
                   <Form {...props}  />
                 </div>
