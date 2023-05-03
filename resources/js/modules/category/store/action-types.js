@@ -1,5 +1,2 @@
 export const CATEGORY_LIST = 'CATEGORY_LIST'
-
-export default {
-    CATEGORY_LIST
-}
+export const CATEGORY_ADD = 'CATEGORY_ADD'

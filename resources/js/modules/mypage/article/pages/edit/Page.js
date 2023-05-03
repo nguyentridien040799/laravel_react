@@ -7,6 +7,7 @@ import { Validator } from 'ree-validate'
 
 // import components
 import Form from './components/Form'
+import Sidebar from "../../../../../common/sidebar";
 
 class Page extends Component {
   static displayName = 'EditArticle'
@@ -111,10 +112,15 @@ class Page extends Component {
   }
   
   render() {
-    return <main className="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
-      <h1>Edit</h1>
-      { this.renderForm() }
-    </main>
+    return <div className="container-fluid">
+      <div className="row">
+        <Sidebar></Sidebar>
+        <main className="col-sm-9 col-md-10 pt-3" role="main">
+          <h1>Edit</h1>
+          { this.renderForm() }
+        </main>
+      </div>
+    </div>
   }
 }
 
